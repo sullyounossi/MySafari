@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -18,29 +18,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0N9-vN-JDd">
-                                <rect key="frame" x="0.0" y="92" width="320" height="476"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0N9-vN-JDd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="W9U-Ow-SXs"/>
+                                </connections>
                             </webView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tA8-Ye-eE9">
-                                <rect key="frame" x="20" y="38" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tA8-Ye-eE9">
+                                <rect key="frame" x="16" y="38" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.81240135732323226" green="0.81240135732323226" blue="0.81240135732323226" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL" keyboardAppearance="alert" returnKeyType="go"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" keyboardAppearance="alert" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DlE-jK-lxL">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNi-Oj-ODX">
+                                <rect key="frame" x="24" y="538" width="30" height="30"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <action selector="onBackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXm-U8-b8P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-xe-jwJ">
+                                <rect key="frame" x="179" y="538" width="30" height="30"/>
+                                <state key="normal" title="r"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-Ts-vij">
+                                <rect key="frame" x="266" y="538" width="30" height="30"/>
+                                <state key="normal" title="x"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynR-vn-vPP">
+                                <rect key="frame" x="96" y="538" width="30" height="30"/>
+                                <state key="normal" title="&gt;"/>
+                                <connections>
+                                    <action selector="onForwardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yC6-T9-KxP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="Cxm-is-TCC"/>
-                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HHN-uF-lmm"/>
-                            <constraint firstItem="0N9-vN-JDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="NE0-AQ-Gyb"/>
-                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="f9G-Qd-5ly"/>
-                            <constraint firstItem="0N9-vN-JDd" firstAttribute="top" secondItem="tA8-Ye-eE9" secondAttribute="bottom" constant="24" id="o6L-i1-qlD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0N9-vN-JDd" secondAttribute="trailing" constant="-20" id="rlW-LZ-YKn"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0N9-vN-JDd" secondAttribute="bottom" id="vVH-Le-lei"/>
-                            <constraint firstItem="0N9-vN-JDd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="92" id="zgH-A0-Y9N"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GNi-Oj-ODX" secondAttribute="bottom" id="3CD-Y7-Dds"/>
+                            <constraint firstItem="DlE-jK-lxL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5XF-Op-tId"/>
+                            <constraint firstItem="ee7-Ts-vij" firstAttribute="leading" secondItem="fbr-xe-jwJ" secondAttribute="trailing" constant="57" id="8sA-68-6f3"/>
+                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="AZz-iX-KVi"/>
+                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="EdR-Nt-BfJ"/>
+                            <constraint firstItem="ynR-vn-vPP" firstAttribute="leading" secondItem="GNi-Oj-ODX" secondAttribute="trailing" constant="42" id="I9E-Yb-PMh"/>
+                            <constraint firstItem="fbr-xe-jwJ" firstAttribute="leading" secondItem="ynR-vn-vPP" secondAttribute="trailing" constant="53" id="ILp-p5-UwA"/>
+                            <constraint firstItem="0N9-vN-JDd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jjo-Ik-St0"/>
+                            <constraint firstItem="GNi-Oj-ODX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="QmT-tZ-Kpm"/>
+                            <constraint firstItem="0N9-vN-JDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rcb-9r-pw5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0N9-vN-JDd" secondAttribute="bottom" id="Xjz-OG-9vG"/>
+                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aK4-id-rgO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ee7-Ts-vij" secondAttribute="trailing" constant="4" id="g8K-4G-zP7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ynR-vn-vPP" secondAttribute="bottom" id="k8L-xP-TU8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fbr-xe-jwJ" secondAttribute="bottom" id="l4e-cv-pjc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ee7-Ts-vij" secondAttribute="bottom" id="ptw-z5-BFm"/>
+                            <constraint firstItem="DlE-jK-lxL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xf9-pc-Eyb"/>
+                            <constraint firstAttribute="trailing" secondItem="0N9-vN-JDd" secondAttribute="trailing" id="yIb-M7-gdW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="DlE-jK-lxL" id="xUQ-RK-flJ"/>
                         <outlet property="urlTextField" destination="tA8-Ye-eE9" id="wzj-Wc-UR5"/>
                         <outlet property="webView" destination="0N9-vN-JDd" id="WRm-bM-KJJ"/>
                     </connections>

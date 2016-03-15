@@ -8,9 +8,10 @@
 
 #import "WebViewViewController.h"
 
-@interface WebViewViewController () < UIWebViewDelegate, UITextFieldDelegate>
+@interface WebViewViewController () < UIWebViewDelegate, UITextFieldDelegate >
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -20,20 +21,51 @@
     [super viewDidLoad];
     self.webView.delegate = self;
     [self loadWebPage:@"http://google.com"];
+    self.urlTextField.delegate = self;
+}
+
+-(void)loadWebPage: (NSString *)webString {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:webString]];
+    [self.webView loadRequest:request];
 }
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self loadWebPage:textField.text];
+    [self.urlTextField resignFirstResponder];
+    
+    [self loadWebPage:self.urlTextField.text];
     
     return YES;
 }
 
-- (void)loadWebPage:(NSString *)webString {
-    NSURL *url = [NSURL URLWithString:webString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
+-(void)webViewDidStartLoad:(UIWebView *)webView {
+    [self.activityIndicator startAnimating];
+    
 }
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.activityIndicator stopAnimating];
+    
+}
+
+- (IBAction)onBackButtonPressed:(UIButton *)sender {
+    if ([self.webView canGoBack]) {
+        [self.webView goBack];
+    }
+}
+
+- (IBAction)onForwardButtonPressed:(UIButton *)sender {
+    if ([self.webView canGoForward]) {
+        [self.webView goForward];
+    }
+}
+
+
+
+
+
+
+
 
 
 /*
