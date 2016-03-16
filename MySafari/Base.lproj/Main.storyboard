@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -35,23 +35,36 @@
                                 <rect key="frame" x="142" y="265" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNi-Oj-ODX">
-                                <rect key="frame" x="24" y="538" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNi-Oj-ODX">
+                                <rect key="frame" x="16" y="538" width="30" height="30"/>
                                 <state key="normal" title="&lt;"/>
                                 <connections>
                                     <action selector="onBackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXm-U8-b8P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-xe-jwJ">
-                                <rect key="frame" x="179" y="538" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-xe-jwJ">
+                                <rect key="frame" x="145" y="538" width="30" height="30"/>
                                 <state key="normal" title="r"/>
+                                <connections>
+                                    <action selector="onReloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wMe-Cz-aEr"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-Ts-vij">
-                                <rect key="frame" x="266" y="538" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ee7-Ts-vij">
+                                <rect key="frame" x="209" y="538" width="30" height="30"/>
                                 <state key="normal" title="x"/>
+                                <connections>
+                                    <action selector="onStopLoadingButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ILa-aZ-iNa"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynR-vn-vPP">
-                                <rect key="frame" x="96" y="538" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiv-Vr-kce">
+                                <rect key="frame" x="274" y="538" width="30" height="30"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="comingSoonButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z5J-b1-z2F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynR-vn-vPP">
+                                <rect key="frame" x="81" y="538" width="30" height="30"/>
                                 <state key="normal" title="&gt;"/>
                                 <connections>
                                     <action selector="onForwardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yC6-T9-KxP"/>
@@ -60,22 +73,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GNi-Oj-ODX" secondAttribute="bottom" id="3CD-Y7-Dds"/>
                             <constraint firstItem="DlE-jK-lxL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5XF-Op-tId"/>
-                            <constraint firstItem="ee7-Ts-vij" firstAttribute="leading" secondItem="fbr-xe-jwJ" secondAttribute="trailing" constant="57" id="8sA-68-6f3"/>
                             <constraint firstItem="tA8-Ye-eE9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="AZz-iX-KVi"/>
+                            <constraint firstItem="fbr-xe-jwJ" firstAttribute="leading" secondItem="ynR-vn-vPP" secondAttribute="trailing" constant="34" id="BC4-Lz-dJg"/>
                             <constraint firstItem="tA8-Ye-eE9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="EdR-Nt-BfJ"/>
-                            <constraint firstItem="ynR-vn-vPP" firstAttribute="leading" secondItem="GNi-Oj-ODX" secondAttribute="trailing" constant="42" id="I9E-Yb-PMh"/>
-                            <constraint firstItem="fbr-xe-jwJ" firstAttribute="leading" secondItem="ynR-vn-vPP" secondAttribute="trailing" constant="53" id="ILp-p5-UwA"/>
+                            <constraint firstItem="fbr-xe-jwJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HWK-E2-GMu"/>
                             <constraint firstItem="0N9-vN-JDd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jjo-Ik-St0"/>
-                            <constraint firstItem="GNi-Oj-ODX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="QmT-tZ-Kpm"/>
                             <constraint firstItem="0N9-vN-JDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rcb-9r-pw5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0N9-vN-JDd" secondAttribute="bottom" id="Xjz-OG-9vG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fbr-xe-jwJ" secondAttribute="bottom" id="ZQP-Uu-aXY"/>
                             <constraint firstItem="tA8-Ye-eE9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aK4-id-rgO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ee7-Ts-vij" secondAttribute="trailing" constant="4" id="g8K-4G-zP7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ynR-vn-vPP" secondAttribute="bottom" id="k8L-xP-TU8"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fbr-xe-jwJ" secondAttribute="bottom" id="l4e-cv-pjc"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ee7-Ts-vij" secondAttribute="bottom" id="ptw-z5-BFm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ee7-Ts-vij" secondAttribute="bottom" id="eA0-g9-elX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GNi-Oj-ODX" secondAttribute="bottom" id="fjQ-U7-Tz9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ynR-vn-vPP" secondAttribute="bottom" id="gWv-QV-7qj"/>
+                            <constraint firstItem="yiv-Vr-kce" firstAttribute="leading" secondItem="ee7-Ts-vij" secondAttribute="trailing" constant="35" id="iAN-Hv-ux9"/>
+                            <constraint firstItem="ee7-Ts-vij" firstAttribute="leading" secondItem="fbr-xe-jwJ" secondAttribute="trailing" constant="34" id="jG0-yV-LbW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yiv-Vr-kce" secondAttribute="bottom" id="nGc-dg-JMS"/>
+                            <constraint firstItem="ynR-vn-vPP" firstAttribute="leading" secondItem="GNi-Oj-ODX" secondAttribute="trailing" constant="35" id="slP-eP-awn"/>
                             <constraint firstItem="DlE-jK-lxL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xf9-pc-Eyb"/>
                             <constraint firstAttribute="trailing" secondItem="0N9-vN-JDd" secondAttribute="trailing" id="yIb-M7-gdW"/>
                         </constraints>
