@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -25,7 +25,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="W9U-Ow-SXs"/>
                                 </connections>
                             </webView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tA8-Ye-eE9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tA8-Ye-eE9">
                                 <rect key="frame" x="16" y="38" width="288" height="30"/>
                                 <color key="backgroundColor" red="0.81240135732323226" green="0.81240135732323226" blue="0.81240135732323226" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,6 +70,12 @@
                                     <action selector="onForwardButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yC6-T9-KxP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh3-Zb-0dv">
+                                <rect key="frame" x="143" y="9" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -79,6 +85,7 @@
                             <constraint firstItem="tA8-Ye-eE9" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="EdR-Nt-BfJ"/>
                             <constraint firstItem="fbr-xe-jwJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HWK-E2-GMu"/>
                             <constraint firstItem="0N9-vN-JDd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jjo-Ik-St0"/>
+                            <constraint firstItem="tA8-Ye-eE9" firstAttribute="top" secondItem="Mh3-Zb-0dv" secondAttribute="bottom" constant="8" id="OWR-V0-BZQ"/>
                             <constraint firstItem="0N9-vN-JDd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rcb-9r-pw5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0N9-vN-JDd" secondAttribute="bottom" id="Xjz-OG-9vG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fbr-xe-jwJ" secondAttribute="bottom" id="ZQP-Uu-aXY"/>
@@ -88,6 +95,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ynR-vn-vPP" secondAttribute="bottom" id="gWv-QV-7qj"/>
                             <constraint firstItem="yiv-Vr-kce" firstAttribute="leading" secondItem="ee7-Ts-vij" secondAttribute="trailing" constant="35" id="iAN-Hv-ux9"/>
                             <constraint firstItem="ee7-Ts-vij" firstAttribute="leading" secondItem="fbr-xe-jwJ" secondAttribute="trailing" constant="34" id="jG0-yV-LbW"/>
+                            <constraint firstItem="Mh3-Zb-0dv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mKn-4T-lZe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yiv-Vr-kce" secondAttribute="bottom" id="nGc-dg-JMS"/>
                             <constraint firstItem="ynR-vn-vPP" firstAttribute="leading" secondItem="GNi-Oj-ODX" secondAttribute="trailing" constant="35" id="slP-eP-awn"/>
                             <constraint firstItem="DlE-jK-lxL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xf9-pc-Eyb"/>
@@ -96,6 +104,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="DlE-jK-lxL" id="xUQ-RK-flJ"/>
+                        <outlet property="pageTitle" destination="Mh3-Zb-0dv" id="9Th-mW-gaj"/>
                         <outlet property="urlTextField" destination="tA8-Ye-eE9" id="wzj-Wc-UR5"/>
                         <outlet property="webView" destination="0N9-vN-JDd" id="WRm-bM-KJJ"/>
                     </connections>

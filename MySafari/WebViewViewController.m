@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property BOOL isScrolling;
+@property (weak, nonatomic) IBOutlet UILabel *pageTitle;
 
 @end
 
@@ -34,6 +35,7 @@
     [self.webView loadRequest:request];
 }
 
+
 - (NSURL *)checkForProtocal:(NSString *)webString {
     NSURL *url;
     if ([webString.lowercaseString hasPrefix:@"http://"]) {
@@ -47,7 +49,6 @@
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-//    [self.urlTextField resignFirstResponder];
     
     [self loadWebPage:self.urlTextField.text];
     
@@ -61,8 +62,16 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.activityIndicator stopAnimating];
+    NSURL *rawURL = self.webView.request.mainDocumentURL;
     
+    NSString *currentURL = [rawURL absoluteString];
+    self.urlTextField.text = currentURL;
+    
+    NSString *theTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.pageTitle.text = theTitle;
 }
+
+
 
 - (IBAction)onBackButtonPressed:(UIButton *)sender {
     if ([self.webView canGoBack]) {
